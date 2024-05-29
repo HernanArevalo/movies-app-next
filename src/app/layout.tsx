@@ -3,7 +3,7 @@ import { Radio_Canada } from "next/font/google";
 import "./globals.css";
 import 'animate.css';
 
-const font = Radio_Canada({ subsets: ["latin"], weight: ['400'] });
+const font = Radio_Canada({ subsets: ["latin"], weight: ['300','400','600','700','500'] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
