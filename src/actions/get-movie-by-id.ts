@@ -44,7 +44,8 @@ export const getMovieById = async(id: string) => {
                     actor2: actors[1],
                     actor3: actors[2],
                     director: director,
-                    trailer: videoUrl
+                    trailer: videoUrl,
+                    vote: movieData.vote_average
                 }
 
     return{
