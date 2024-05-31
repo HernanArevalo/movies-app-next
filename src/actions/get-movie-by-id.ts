@@ -1,6 +1,6 @@
 'use server'
 
-import { Cast, Result } from "@/interfaces"
+import { Cast, Flatrate, Result } from "@/interfaces"
 
 export const getMovieById = async(id: string) => {
 

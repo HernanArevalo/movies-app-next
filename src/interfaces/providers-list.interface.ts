@@ -1,0 +1,131 @@
+export interface ProvidersRegions {
+  id: number;
+  results: Results;
+}
+
+export interface Results {
+  AD: Provider;
+  AE: Provider;
+  AO: Provider;
+  AR: Provider;
+  AT: Provider;
+  AU: Provider;
+  AZ: Provider;
+  BB: Provider;
+  BE: Provider;
+  BF: Provider;
+  BG: Provider;
+  BO: Provider;
+  BR: Provider;
+  BS: Provider;
+  BY: Provider;
+  BZ: Provider;
+  CA: Provider;
+  CH: Provider;
+  CI: Provider;
+  CL: Provider;
+  CM: Provider;
+  CO: Provider;
+  CR: Provider;
+  CV: Provider;
+  CY: Provider;
+  CZ: Provider;
+  DE: Provider;
+  DK: Provider;
+  DO: Provider;
+  EC: Provider;
+  EE: Provider;
+  EG: Provider;
+  ES: Provider;
+  FI: Provider;
+  FR: Provider;
+  GB: Provider;
+  GF: Provider;
+  GG: Provider;
+  GH: Provider;
+  GI: Provider;
+  GQ: Provider;
+  GR: Provider;
+  GT: Provider;
+  GY: Provider;
+  HK: Provider;
+  HN: Provider;
+  HR: Provider;
+  HU: Provider;
+  ID: Provider;
+  IE: Provider;
+  IL: Provider;
+  IN: Provider;
+  IS: Provider;
+  IT: Provider;
+  JM: Provider;
+  JP: Provider;
+  KE: Provider;
+  KR: Provider;
+  LB: Provider;
+  LC: Provider;
+  LI: Provider;
+  LT: Provider;
+  LU: Provider;
+  LV: Provider;
+  MG: Provider;
+  ML: Provider;
+  MU: Provider;
+  MX: Provider;
+  MY: Provider;
+  MZ: Provider;
+  NE: Provider;
+  NG: Provider;
+  NI: Provider;
+  NL: Provider;
+  NO: Provider;
+  NZ: Provider;
+  PA: Provider;
+  PE: Provider;
+  PG: Provider;
+  PH: Provider;
+  PL: Provider;
+  PT: Provider;
+  PY: Provider;
+  RU: Provider;
+  SA: Provider;
+  SC: Provider;
+  SE: Provider;
+  SG: Provider;
+  SI: Provider;
+  SK: Provider;
+  SN: Provider;
+  SV: Provider;
+  TC: Provider;
+  TD: Provider;
+  TH: Provider;
+  TR: Provider;
+  TT: Provider;
+  TW: Provider;
+  TZ: Provider;
+  UA: Provider;
+  UG: Provider;
+  US: Provider;
+  UY: Provider;
+  VE: Provider;
+  ZA: Provider;
+  ZM: Provider;
+  ZW: Provider;
+}
+
+
+export interface Provider {
+  link: string;
+  flatrate?: Flatrate[];
+  rent?: Flatrate[];
+  buy?: Flatrate[];
+  ads?: Flatrate[];
+}
+
+export interface Flatrate {
+  logo_path: string;
+  provider_id: number;
+  provider_name: string;
+  display_priority: number;
+  url?: string;
+}
