@@ -83,13 +83,13 @@ export default async function MoviePage({ params }: Props) {
               <div className="multimedia-container trailerActive animate__animated animate__fadeInRight">
                 <div className="poster">
                   <a href={movie!.poster} target="_blank">
-                  <Image
-                    src={movie!.poster}
-                    alt=""
-                    className="h-44 w-auto"
-                    width={300}
-                    height={300}
-                  />
+                    <Image
+                      src={movie!.poster}
+                      alt=""
+                      className="h-44 w-auto"
+                      width={300}
+                      height={300}
+                    />
                   </a>
                 </div>
                 <div className="flex flex-row md:flex-col gap-4">
@@ -103,7 +103,7 @@ export default async function MoviePage({ params }: Props) {
                       <span>WALLPAPER</span>
                     </div>
                   </a>
-                  </div>
+                </div>
               </div>
             </div>
 
@@ -123,17 +123,14 @@ export default async function MoviePage({ params }: Props) {
           </footer>
         </div>
 
-        {/* <TrailerComponent
-                              trailer={ movie?.trailer }
-                              id={ movie?.id }
-                /> */}
-
         <Link href={'/'}>
           <div className="search-icon">
             <IoSearch size={32} />
           </div>
         </Link>
       </div>
+
+      <TrailerComponent trailer={movie?.trailer ?? ''} id={movie?.id} />
     </>
   );
 }
