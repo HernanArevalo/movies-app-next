@@ -22,7 +22,7 @@ export default async function MoviePage({ params }: Props) {
   const { ok, movie } = await getMovieById(id);
 
   if (!ok) {
-    redirect('/search');
+    redirect(`/`);
   }
 
   return (
