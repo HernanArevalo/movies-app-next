@@ -28,12 +28,12 @@ export default async function MoviePage({ params }: Props) {
   return (
     <>
       <div
-        className="movie-container animate__animated animate__fadeIn "
+        className="movie-container animate__animated animate__fadeIn"
         style={{ backgroundImage: `url(${movie?.backdrop})` }}
       >
-        <div className="main-container">
+        <div className="main-container  animate__animated animate__fadeIn">
           <div className="upper-container">
-            <div className="title animate__animated animate__fadeInRight">
+            <div className="title animate__animated animate__fadeInRight flex justify-center items-end gap-0 flex-col">
               <h3 className="font-extrabold">{movie?.title.toUpperCase()}</h3>
             </div>
 
@@ -82,10 +82,9 @@ export default async function MoviePage({ params }: Props) {
                     height={300}
                   />
                 </div>
-                <Link href={`./trailer`}>
-                  <div className="trailer-text">
-                    <span>TRAILER</span>
-                    <i className="bx bxs-right-arrow"></i>
+                    <div className="trailer-text rounded">
+                      <span>WALLPAPER</span>
+                    </div>
                   </div>
                 </Link>
 								<DowloadBackdrop url={movie!.backdrop} title={movie!.title}/>
@@ -99,11 +98,11 @@ export default async function MoviePage({ params }: Props) {
 
           <footer className="animate__animated animate__fadeInUp">
             <div className="flex flex-row gap-4 md:gap-16 xl:gap-32 justify-evenly">
-              <span className="font-light">{movie?.actor1}</span>
+              <span className="font-light text-center">{movie?.actor1}</span>
               <span>|</span>
-              <span className="font-light">{movie?.actor2}</span>
+              <span className="font-light text-center">{movie?.actor2}</span>
               <span>|</span>
-              <span className="font-light">{movie?.actor3}</span>
+              <span className="font-light text-center">{movie?.actor3}</span>
             </div>
           </footer>
         </div>
