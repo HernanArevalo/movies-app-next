@@ -82,6 +82,7 @@ export default async function MoviePage({ params }: Props) {
 
               <div className="multimedia-container trailerActive animate__animated animate__fadeInRight">
                 <div className="poster">
+                  <a href={movie!.poster} target="_blank">
                   <Image
                     src={movie!.poster}
                     alt=""
@@ -89,13 +90,20 @@ export default async function MoviePage({ params }: Props) {
                     width={300}
                     height={300}
                   />
+                  </a>
                 </div>
+                <div className="flex flex-row md:flex-col gap-4">
+                  <TrailerButton />
+                  <a
+                    href={movie!.backdrop}
+                    download={movie!.title}
+                    target="_blank"
+                  >
                     <div className="trailer-text rounded">
                       <span>WALLPAPER</span>
                     </div>
+                  </a>
                   </div>
-                </Link>
-								<DowloadBackdrop url={movie!.backdrop} title={movie!.title}/>
               </div>
             </div>
 
