@@ -1,11 +1,14 @@
-import { getMovieById } from '@/actions';
 import { redirect } from 'next/navigation';
-import './page.css';
-import Link from 'next/link';
-import { TrailerComponent } from '@/components';
 import Image from 'next/image';
+import Link from 'next/link';
+
 import { IoSearch } from 'react-icons/io5';
-import { DowloadBackdrop } from '@/components/DowloadBackdrop';
+
+import { getMovieById } from '@/actions';
+import { TrailerButton, TrailerComponent } from '@/components';
+import { scoreToRgb } from '@/utils';
+
+import './page.css';
 
 interface Props {
   params: {
