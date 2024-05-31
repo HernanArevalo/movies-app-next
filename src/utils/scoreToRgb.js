@@ -16,5 +16,5 @@ export const scoreToRgb = (score) => {
       b = 0;
   }
 
-  return `rgba(${r}, ${g}, ${b}, 0.5)`;
+  return `rgba(${r}, ${g}, ${b}, 0.4)`;
 }

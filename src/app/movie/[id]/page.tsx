@@ -25,6 +25,8 @@ export default async function MoviePage({ params }: Props) {
     redirect(`/`);
   }
 
+  const scoreColor = scoreToRgb(movie?.vote);
+
   return (
     <>
       <div
@@ -35,6 +37,12 @@ export default async function MoviePage({ params }: Props) {
           <div className="upper-container">
             <div className="title animate__animated animate__fadeInRight flex justify-center items-end gap-0 flex-col">
               <h3 className="font-extrabold">{movie?.title.toUpperCase()}</h3>
+              <span
+                className="w-9 h-9 text-lg flex justify-center items-center rounded text-black"
+                style={{ backgroundColor: scoreColor }}
+              >
+                {movie?.vote}
+              </span>
             </div>
 
             <div className="info-container animate__animated animate__fadeInRight">
