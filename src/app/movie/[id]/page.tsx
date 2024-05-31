@@ -38,7 +38,18 @@ export default async function MoviePage({ params }: Props) {
             </div>
 
             <div className="info-container animate__animated animate__fadeInRight">
-              <div className="year-genders animate__animated animate__fadeInRight">
+              <div className="year-genders animate__animated animate__fadeInRight flex flex-col gap-5 items-end">
+                <div className="flex flex-row gap-2 items-center">
+                  {movie?.providers.map((provider: any) => (
+                    <Image
+                      key={provider.logo_path}
+                      src={`${provider.url}`}
+                      alt=""
+                      width={48}
+                      height={48}
+                    />
+                  ))}
+                </div>
                 {movie != null && (
                   <span>
                     {movie.year} | {movie.genre1}, {movie.genre2}

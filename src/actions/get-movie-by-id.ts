@@ -15,10 +15,19 @@ export const getMovieById = async(id: string) => {
     const creditsData = await resp2.json();
     
     const actors = [ creditsData.cast[0].name, creditsData.cast[1].name, creditsData.cast[2].name ]
-    const director = creditsData.crew.filter( (member:Cast) => member.known_for_department == "Directing")[0].name
+    const director = creditsData.crew.filter( (member:Cast) => member.job == "Director")[0].name
+
+    const providersUrl = `https://api.themoviedb.org/3/movie/${encodeURI(id)}/watch/providers?api_key=${process.env.movies_api_key}`
+    const providersFetch = await fetch(providersUrl)
+    const providersList = (await providersFetch.json().then(r => r.results.AR?.flatrate)).filter((provider:Flatrate) => provider.provider_name !== 'HBO Max') ?? []
+
+    if (providersList.length > 0) {
+      providersList.forEach((provider:Flatrate) => {
+        provider.url = 'https://image.tmdb.org/t/p/original' + provider.logo_path
+      });
+    }
 
     const genres = [ movieData.genres[0].name, movieData.genres[1].name]
-        
 
     const trailerUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=0b8f2d2a77497c17a0f15b1d4edfa0f8&language=en-US`
     const resp3 = await fetch(trailerUrl);
@@ -45,7 +54,8 @@ export const getMovieById = async(id: string) => {
                     actor3: actors[2],
                     director: director,
                     trailer: videoUrl,
-                    vote: movieData.vote_average
+                    vote: Number( movieData.vote_average.toFixed(1)),
+                    providers: providersList
                 }
 
     return{
