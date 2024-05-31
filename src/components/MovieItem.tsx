@@ -1,5 +1,4 @@
 import { MovieResume } from '@/interfaces';
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 interface Props{
@@ -8,14 +7,10 @@ interface Props{
 
 
 export const MovieItem = ({movie}:Props) => {
-  const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
 
   return (
-    <>{ isLoaded?
+    <>{ 
         <Link key={movie.id} href={`/movie/${movie.id}`}>
           <div
             className="w-64 h-32 text-white font-normal rounded-xl bg-gray-900 
@@ -38,11 +33,6 @@ export const MovieItem = ({movie}:Props) => {
             </div>
           </div>
         </Link>
-        :
-        <div className="">
-          Loading
-        </div>
-  
       }
 
     </>
