@@ -39,12 +39,12 @@ export default function SearchPage() {
           <IoCloseCircleSharp size={44} onClick={onInputDelete} className="cursor-pointer"/>
         </div>
         <div className="flex-row flex flex-wrap gap-4 justify-center">
-          { movies.map((movie, idx) =>(
-            <MovieItem key={`${idx}${movie.id}${movie.title}`} 
-                       movie={movie}
-            />
-          ))
-
+          { movies.length == 0 && input.trim() !== ''?
+          <div className="ml-4 mt-12 text-xl text-left w-full flex justify-start animate__animated animate__fadeIn">
+            <span>No results :(</span>
+          </div>
+          : 
+          movies.map((movie, idx) =>( <MovieItem key={`${idx}${movie.id}${movie.title}`} movie={movie}/> )) 
           }
         </div>
       </div>
