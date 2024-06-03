@@ -1,5 +1,5 @@
 "use client"
-import { trailerStore } from '@/app/store';
+import { MoviesStore } from '@/app/store';
 import './TrailerComponent.css';
 import clsx from 'clsx';
 
@@ -10,8 +10,8 @@ interface Params{
 
 export const TrailerComponent = ( {trailer, id }: Params ) => {
 
-  const trailerOpened = trailerStore(state => state.opened)
-  const closeTrailer = trailerStore(state => state.closeTrailer)
+  const trailerOpened = MoviesStore(state => state.trailerOpened)
+  const closeTrailer = MoviesStore(state => state.closeTrailer)
 
   return (
       <section  onClick={ ()=>closeTrailer() }

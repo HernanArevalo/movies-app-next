@@ -1,10 +1,10 @@
 'use client';
 
-import { trailerStore } from '@/app/store';
+import { MoviesStore } from '@/app/store';
 import { useEffect } from 'react';
 
 export const TrailerButton = () => {
-  const { openTrailer, closeTrailer } = trailerStore();
+  const { openTrailer, closeTrailer } = MoviesStore();
 
   useEffect(() => {
     closeTrailer();

@@ -1,2 +1,2 @@
 
-export * from './trailer.store'
+export * from './movies.store'
