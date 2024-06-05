@@ -1,7 +1,7 @@
 "use client"
 
 import { getMovies } from "@/actions";
-import { MovieItem } from "@/components";
+import { MovieItem, PageIntro } from "@/components";
 import { MovieResume } from "@/interfaces";
 import { useState } from "react";
 import { IoCloseCircleSharp } from "react-icons/io5";
@@ -11,7 +11,6 @@ export default function SearchPage() {
 
   const [input, setInput] = useState("")
   const [movies, setMovies] = useState<MovieResume[]>([])
-
 
   const onInputChange = async(e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value)
@@ -23,8 +22,8 @@ export default function SearchPage() {
   const onInputDelete = () =>{
     setInput('')
   }
-
-
+  
+  
   
 
   return (
@@ -48,6 +47,8 @@ export default function SearchPage() {
           }
         </div>
       </div>
+
+      <PageIntro />
     </>
   );
 }
