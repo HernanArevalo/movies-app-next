@@ -14,49 +14,54 @@ export const getMovieById = async(id: string) => {
     const resp2 = await fetch(creditsUrl);
     const creditsData = await resp2.json();
     
-    const actors = [ creditsData.cast[0].name, creditsData.cast[1].name, creditsData.cast[2].name ]
-    const director = creditsData.crew.filter( (member:Cast) => member.job == "Director")[0].name
+    const genres: string[] = movieData.genres.slice(0,2).map((gender: Genre) => gender.name);
+
+    let actors = creditsData.cast.slice(0,3).map((actor: CastMember) => actor.name);
+
+    const director = creditsData.crew.filter( (member:CastMember) => member.job == "Director")[0].name ?? '-'
+    
 
     const providersUrl = `https://api.themoviedb.org/3/movie/${encodeURI(id)}/watch/providers?api_key=${process.env.movies_api_key}`
     const providersFetch = await fetch(providersUrl)
-    const providersList = (await providersFetch.json().then(r => r.results.AR?.flatrate)).filter((provider:Flatrate) => provider.provider_name !== 'HBO Max') ?? []
+    const providersList = (await providersFetch.json().then(r => r.results.AR?.flatrate))
 
-    if (providersList.length > 0) {
-      providersList.forEach((provider:Flatrate) => {
+    let providers
+    if(providersList == undefined){
+      providers = []
+    }else{
+      providers = providersList.filter((provider:Flatrate) => provider.provider_name !== 'HBO Max') ?? []
+      providers.forEach((provider:Flatrate) => {
         provider.url = 'https://image.tmdb.org/t/p/original' + provider.logo_path
       });
     }
 
-    const genres = [ movieData.genres[0].name, movieData.genres[1].name]
-
     const trailerUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=0b8f2d2a77497c17a0f15b1d4edfa0f8&language=en-US`
     const resp3 = await fetch(trailerUrl);
-    const { results:movieVideos } = await resp3.json();
+    const { results:movieVideos } = await resp3.json(); 
 
-    const { key:movieTrailerId } = movieVideos.find((movie:Result) => movie.type === 'Trailer');
-
-
+    
+    const movieTrailerId = movieVideos.find((movie:Result) => movie.type === 'Trailer')?.key
+    
     const videoUrl = `https://www.youtube.com/embed/${ movieTrailerId }`
-
-
+    
 
     const movie = { id: movieData.id,
                     backdrop: `https://image.tmdb.org/t/p/original${movieData.backdrop_path}`,
                     poster: `https://image.tmdb.org/t/p/original${movieData.poster_path}`,
-                    genre1: genres[0],
-                    genre2: genres[1],
+                    genres: genres,
                     title: movieData.title,
                     story: movieData.overview,
                     tagline: movieData.tagline,
                     year: (movieData.release_date)?.slice(0,4),
-                    actor1: actors[0],
-                    actor2: actors[1],
-                    actor3: actors[2],
-                    director: director,
+                    actor1: actors[0] || '',
+                    actor2: actors[1] || '',
+                    actor3: actors[2] || '',
+                    director: director || '',
                     trailer: videoUrl,
                     vote: Number( movieData.vote_average.toFixed(1)),
-                    providers: providersList
+                    providers: providers
                 }
+
 
     return{
       ok: true,
