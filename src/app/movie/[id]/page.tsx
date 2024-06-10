@@ -56,6 +56,7 @@ export default async function MoviePage({ params }: Props) {
                       alt=""
                       width={48}
                       height={48}
+                        key={provider.logo_path}
                     />
                     // </Link>
                   ))}
