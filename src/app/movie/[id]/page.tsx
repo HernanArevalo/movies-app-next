@@ -51,7 +51,6 @@ export default async function MoviePage({ params }: Props) {
                   {movie?.providers.map((provider: any) => (
                     // <Link key={provider.logo_path} href={''}>
                     <Image
-                      key={provider.logo_path}
                       src={`${provider.url}`}
                       alt=""
                       width={48}
