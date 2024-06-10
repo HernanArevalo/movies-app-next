@@ -50,21 +50,21 @@ export default async function MoviePage({ params }: Props) {
                 <div className="flex flex-row gap-2 items-center">
                   {movie?.providers.map((provider: any) => (
                     // <Link key={provider.logo_path} href={''}>
-                    <Image
+                      <Image
                       src={`${provider.url}`}
                       alt=""
                       width={48}
                       height={48}
-                        key={provider.logo_path}
-                    />
+                      key={provider.logo_path}
+                      />
                     // </Link>
                   ))}
                 </div>
-                {movie != null && (
-                  <span>
-                    {movie.year} | {movie.genre1}, {movie.genre2}
-                  </span>
-                )}
+                <div className="flex justify-center items-center gap-2">
+                  <span className=" flex justify-center items-center">{movie?.year}</span>
+                  <span className=" flex justify-center items-center">|</span>
+                  <span className="font-normal flex justify-center items-center">{movie?.genres.join(", ")}</span> 
+                </div>
               </div>
               <div className="story-title flex flex-row gap-5 justify-end pr-5">
                 <h4>The Story</h4>
