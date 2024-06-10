@@ -49,6 +49,7 @@ export default async function MoviePage({ params }: Props) {
               <div className="year-genders animate__animated animate__fadeInRight flex flex-col gap-5 items-end">
                 <div className="flex flex-row gap-2 items-center">
                   {movie?.providers.map((provider: any) => (
+                    // <Link key={provider.logo_path} href={''}>
                     <Image
                       key={provider.logo_path}
                       src={`${provider.url}`}
@@ -56,6 +57,7 @@ export default async function MoviePage({ params }: Props) {
                       width={48}
                       height={48}
                     />
+                    // </Link>
                   ))}
                 </div>
                 {movie != null && (
