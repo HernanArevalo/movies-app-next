@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${font.className} min-h-calc[100vh] w-calc[100vw] font-bold`}>
+      <body className={`${font.className} min-h-calc[100vh] w-full font-bold`}>
         {children}
       </body>
     </html>
