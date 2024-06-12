@@ -24,6 +24,9 @@ export const getMovies = async(input:string): Promise<Response> => {
     const resp = await fetch(movies_url).then()
     const { results:data } = await resp.json();
 
+    // const delay = (ms:number) => new Promise((resolve) => setTimeout(resolve, ms));
+    // await delay(100000000)
+
     const movies = data.map( (movie:Movie) => {
       return { poster_path: movie.poster_path,
                image_path: movie.backdrop_path,
