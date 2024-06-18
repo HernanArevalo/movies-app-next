@@ -9,6 +9,7 @@ import { TrailerButton, TrailerComponent } from '@/components';
 import { scoreToRgb } from '@/utils';
 
 import './page.css';
+import { TbMovieOff } from 'react-icons/tb';
 
 interface Props {
   params: {
@@ -48,7 +49,8 @@ export default async function MoviePage({ params }: Props) {
             <div className="info-container animate__animated animate__fadeInRight">
               <div className="year-genders animate__animated animate__fadeInRight flex flex-col gap-5 items-end">
                 <div className="flex flex-row gap-2 items-center">
-                  {movie?.providers.map((provider: any) => (
+                  {movie?.providers.length > 0 ? 
+                  movie?.providers.map((provider: any) => (
                     // <Link key={provider.logo_path} href={''}>
                       <Image
                       src={`${provider.url}`}
@@ -56,9 +58,13 @@ export default async function MoviePage({ params }: Props) {
                       width={48}
                       height={48}
                       key={provider.logo_path}
-                      />
+                      />))
                     // </Link>
-                  ))}
+                    :
+                    <div className="bg-gray-600 p-2 rounded">
+                      <TbMovieOff color='white'/>
+                    </div>
+                  }
                 </div>
                 <div className="flex justify-center items-center gap-2">
                   <span className=" flex justify-center items-center">{movie?.year}</span>
