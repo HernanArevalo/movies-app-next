@@ -31,7 +31,7 @@ export default async function MoviePage({ params }: Props) {
   return (
     <>
       <div
-        className="movie-container animate__animated animate__fadeIn"
+        className="movie-container animate__animated animate__fadeIn transition-all"
         style={{ backgroundImage: `url(${movie?.backdrop})` }}
       >
         <div className="main-container  animate__animated animate__fadeIn">
