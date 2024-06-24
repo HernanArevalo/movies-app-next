@@ -10,12 +10,36 @@ import { TrailerButton, TrailerComponent } from './components';
 import { scoreToRgb } from '@/utils';
 
 import './page.css';
+import { Metadata, ResolvingMetadata } from 'next';
 
 interface Props {
   params: {
     id: string;
   };
 }
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const { id } = params
+ 
+  // fetch data
+  const { movie } = await getMovieById(id)
+
+ 
+  return {
+    title: `${movie?.title} | Movies App` ?? 'Movies App',
+    description: movie?.story ?? '',
+    openGraph: {
+      title: movie?.title ?? 'Producto no encontrado',
+      description: movie?.story ?? '',
+      images: [`${movie?.backdrop}`],
+    },
+  }
+}
+
 
 export default async function MoviePage({ params }: Props) {
   const { id } = params;

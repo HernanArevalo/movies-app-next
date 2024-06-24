@@ -1,6 +1,12 @@
 import { PageIntro } from '@/components';
 
 import { Input, MoviesGrid } from './components';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Movies App',
+  description: 'Find a movie to watch. See the providers,the ratings and other information. An informative movie platform powered by React.js to explore and discover details about your favorite films.',
+}
 
 export default function SearchPage() {
 
