@@ -12,7 +12,7 @@ export const PageIntro = () => {
       const timer = setTimeout(() => {
         setIsLoading(false);
         cancelFirstTime(); // Cancelar después de que la pantalla de carga haya terminado
-      }, 3000); // Cambia el tiempo según sea necesario
+      }, 5000); // Cambia el tiempo según sea necesario
 
       return () => clearTimeout(timer);
     } else {
@@ -23,7 +23,7 @@ export const PageIntro = () => {
   return (
     <div>
       {isLoading && firstTime && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black z-20  animate__animated animate__fadeOut animate__delay-3s">
+        <div className="fixed inset-0 flex items-center justify-center bg-black z-20 pointer-events-none animate__animated animate__fadeOut animate__delay-3s">
           <h1 className="text-white text-4xl animate__animated animate__fadeIn animate__delay-1s">Movies App.</h1>
         </div>
       )}
