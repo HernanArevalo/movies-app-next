@@ -1,28 +1,24 @@
 "use client"
 import { MoviesStore } from '@/app/store';
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 export const PageIntro = () => {
-  const [isLoading, setIsLoading] = useState(true);
   const { firstTime, cancelFirstTime } = MoviesStore()
   
 
   useEffect(() => {
     if (firstTime) {
       const timer = setTimeout(() => {
-        setIsLoading(false);
-        cancelFirstTime(); // Cancelar después de que la pantalla de carga haya terminado
-      }, 5000); // Cambia el tiempo según sea necesario
+        cancelFirstTime();
+      }, 5000);
 
       return () => clearTimeout(timer);
-    } else {
-      setIsLoading(false);
-    }
+    } 
   }, [firstTime, cancelFirstTime]);
 
   return (
     <div>
-      {isLoading && firstTime && (
+      { firstTime && (
         <div className="fixed inset-0 flex items-center justify-center bg-black z-20 pointer-events-none animate__animated animate__fadeOut animate__delay-3s">
           <h1 className="text-white text-4xl animate__animated animate__fadeIn animate__delay-1s">Movies App.</h1>
         </div>
