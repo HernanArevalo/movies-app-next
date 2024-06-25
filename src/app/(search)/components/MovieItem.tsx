@@ -13,7 +13,7 @@ export const MovieItem = ({movie}:Props) => {
     <>{ 
         <Link key={movie.id} href={`/movie/${movie.id}`}>
           <div
-            className="w-64 h-32 text-white font-normal rounded-xl bg-gray-900 
+            className="w-64 h-32 md:w-96 md:h-48 text-white font-normal rounded-xl bg-gray-900 
                        animate__animated animate__fadeIn animate__delay-1s
                        flex justify-center items-center text-center shadow-sm
                        bg-cover bg-center hover:scale-110 transition-all cursor-pointer"

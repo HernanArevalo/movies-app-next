@@ -50,11 +50,11 @@ export const MoviesGrid = () => {
     loading ? 
     <Loading />
     :
-    (<div className="flex-row flex flex-wrap gap-4 justify-center">
+    (<div className="flex-row flex flex-wrap gap-4 justify-center h-full items-center">
       {queryParam === '' ? (
-        <div className="flex flex-col gap-6 w-full">
-          <span className="text-3xl">Popular Movies:</span>
-          <div className="flex-row flex flex-wrap gap-4 justify-center">
+        <div className="flex flex-col gap-6 w-full h-full justify-center items-center lg:px-0 2xl:px-20 ">
+          <span className="text-2xl w-full text-center animate__animated animate__fadeIn animate__delay-1s">Popular Movies</span>
+          <div className="flex-row flex flex-wrap gap-6 justify-center items-center">
             {popularMovies.slice(0, 8).map((movie, idx) => (
               <MovieItem
                 key={`${idx}${movie.id}${movie.title}`}
