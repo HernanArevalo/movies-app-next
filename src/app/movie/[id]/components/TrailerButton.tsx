@@ -8,7 +8,7 @@ export const TrailerButton = () => {
 
   useEffect(() => {
     closeTrailer();
-  }, []);
+  }, [closeTrailer]);
 
   const onSubmitOpen = () => {
     openTrailer();
