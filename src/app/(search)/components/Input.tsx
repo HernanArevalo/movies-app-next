@@ -1,7 +1,7 @@
 "use client"
 import { useRouter, useSearchParams } from 'next/navigation';
 import {  useEffect, useState } from 'react'
-import { IoCloseCircleSharp } from 'react-icons/io5'
+import { IoCloseSharp } from 'react-icons/io5'
 
 
 
@@ -27,18 +27,23 @@ export const Input = () => {
   };
 
   return (
-    <div className="flex flex-row gap-4 items-center animate__animated animate__fadeInLeft">
+    <div className="w-72 max-w-full md:w-96 py-1 px-2 flex flex-row gap-0 items-center animate__animated animate__fadeInLeft rounded-3xl overflow-hidden bg-white  justify-between">
           <input
             value={input}
             onChange={onInputChange}
             type="text"
-            className="py-2 px-4 rounded-3xl bg-white w-96 text-black"
+            className="w-full text-black  bg-opacity-75 focus:outline-none pl-2"
+            
           />
-          <IoCloseCircleSharp
-            size={44}
-            onClick={onInputDelete}
-            className="cursor-pointer"
-          />
+          <div className="">
+            <IoCloseSharp
+              size={32}
+              color='black'
+              onClick={onInputDelete}
+              className="cursor-pointer rounded-r-3xl rounded-l-none"
+            />
+            
+          </div>
         </div>
   )
 }
