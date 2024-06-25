@@ -14,7 +14,7 @@ interface State {
 export const MoviesStore = create<State>(
   
   (set) => ({
-  trailerOpened: true,
+  trailerOpened: false,
   closeTrailer: () => set(() => ({ trailerOpened: false })),
   openTrailer: () => set(() => ({ trailerOpened: true })),
 
