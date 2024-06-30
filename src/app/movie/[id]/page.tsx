@@ -22,13 +22,11 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  // read route params
   const { id } = params
- 
-  // fetch data
+
   const { movie } = await getMovieById(id)
 
- 
+
   return {
     title: `${movie?.title} | Movies App` ?? 'Movies App',
     description: movie?.story ?? '',
